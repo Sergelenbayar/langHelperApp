@@ -15,7 +15,7 @@ class KanjiController extends Controller
      */
     public function index()
     {
-        $kanjis =  Kanji::paginate(4);
+        $kanjis =  Kanji::where('jlptLevel','=','5')->orderBy('jlptLevel', 'desc')->paginate(4);
         $categories = Category::all();
         // $kanji = Kanji::find(2);
         // dd($kanji->category == null ? "null":"0");
